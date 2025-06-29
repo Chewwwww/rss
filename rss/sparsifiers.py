@@ -55,3 +55,13 @@ def pivotal(v, m):
         result[nonzeros] = reduced
 
     return result
+
+def hthresholding(v, m):
+
+    temp = np.sort(np.abs(v))
+
+    thresh = temp[len(v) - m]
+
+    np.putmask(v, abs(v) < thresh, [0])
+
+    return v
